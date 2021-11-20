@@ -6,7 +6,6 @@ sender = [
 ][0]
 
 WALLET = '/erd/wallets/' + sender + '.pem'
-SCRIPTS_DIR = '/erd/scripts/'
 
 divisor = 10
 
@@ -87,7 +86,7 @@ if 'wallet' in param and len(status) == 0:
         try:
             end = '&>/dev/null' if not verbose else ' 2>&1'
 
-            os.system('bash -c \'cd ' + SCRIPTS_DIR + '; WALLET_PEM=' + WALLET + ' ./txsign.py sender="{}" receiver="{}" value=0 data=ESDTTransfer@{}@{} gas=1000000 post=yes >output\''.format(sender, wallet, token, xamount))
+            os.system('bash -c \'WALLET_PEM=' + WALLET + ' ./txsign.py sender="{}" receiver="{}" value=0 data=ESDTTransfer@{}@{} gas=1000000 post=yes >output\''.format(sender, wallet, token, xamount))
             with open('output') as pipe: data = eval(pipe.read().strip())
             tx = data['data']['txHash']
             with open('status', mode = 'w') as fd: fd.write(tx + '\n')
