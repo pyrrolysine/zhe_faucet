@@ -1,4 +1,4 @@
-# zhe_faucet
+# ZHE「這」 faucet 「井」
 Request a token from the Faucet
 
 ### Operation
