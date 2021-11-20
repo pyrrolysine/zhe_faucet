@@ -1,0 +1,42 @@
+<html>
+    <meta charset="utf-8"></meta>
+    <title>Request ZHE</title>
+    <script>
+        const TIMEOUT = 2500
+        if(window.location.href.indexOf('wallet') > -1) {
+            setTimeout(() => { window.location = '/cgi-bin/zhe_faucet/zhe.py'; }, TIMEOUT)
+        }
+    </script>
+    <style>
+        h1 {
+            font-size:4vw;
+        }
+        * {
+            text-align:center;
+            font-family:Monospace;
+            font-size:2vw;
+            margin:auto;
+        }
+        a {
+            text-decoration:none;
+        }
+        td {
+            text-align:left;
+        }
+    </style>
+    <body>
+        <br/><br/>
+            <h1>ZHE「這」 faucet 「井」</h1>
+        <br/><br/>
+        <br/><br/>
+            Wallet:<br/>
+            <input type="text" style="width:70vw" id="address" placeholder="Enter a valid Elrond blockchain account address"></input><br/>
+        <br/>
+        $STATUS;
+        <br/>
+        <br/><br/>
+            ZHE in circulation: <b>$AMOUNT_SENT;</b><br/>
+            ZHEs not yet given: <b>$AMOUNT_FREE;</b>
+    </body>
+</html>
+
